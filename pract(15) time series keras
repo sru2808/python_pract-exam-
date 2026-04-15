@@ -1,0 +1,27 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+
+# time series data
+x = np.array([1,2,3,4,5,6,7,8,9,10])
+y = np.array([10,12,14,16,18,20,22,24,26,28])
+
+# reshape for LSTM -> (samples, timesteps, features)
+x = x.reshape((x.shape[0], 1, 1))
+
+model = tf.keras.Sequential([
+    tf.keras.Input(shape=(1,1)),
+    tf.keras.layers.LSTM(10),
+    tf.keras.layers.Dense(1)
+])
+
+model.compile(optimizer="adam", loss="mse")
+model.fit(x, y, epochs=200, verbose=0)
+
+p = model.predict(x)
+
+# plot
+plt.plot(y, label="Actual")
+plt.plot(p, label="Predicted")
+plt.legend()
+plt.show()
