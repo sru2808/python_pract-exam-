@@ -1,0 +1,12 @@
+import numpy as np
+arr1=np.array([1,7,2,9,4])
+print(arr1)
+print("searching")
+result=np.where(arr1==3)
+print(result)
+
+print("sorting")
+result2=np.sort(arr1)
+print(result2)
+print(np.sort(arr1)[::-1])
+
