@@ -1,0 +1,29 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.Series(["red","blue","green"])
+print(df)
+print("string contain a")
+result=df.str.contains("a")
+print(result)
+print("regular expression")
+print("\n word starting with r")
+result2=df.str.contains("^r")
+print(result2)
+
+print("\n timeseries ")
+dates=pd.date_range(start="2024-1-1",periods=5)
+ts=pd.Series([10,20,30,40,50],index=dates)
+print(ts)
+
+df1=pd.DataFrame({"name":["sru","dug","co"],
+                  "marks":[20,30,40]})
+print(df1[df1["marks"]>30])
+
+print("plotting")
+data=pd.DataFrame({"months":["jan","feb","mar","apr"],
+                    "sales":[20,330,50,80]
+                   })
+                   
+   
+data.plot(x="months",y="sales")
+plt.show()
