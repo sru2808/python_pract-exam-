@@ -1,0 +1,20 @@
+import tensorflow_decision_forests as tfdf
+import pandas as pd
+import numpy as np
+
+data = pd.DataFrame({
+    "x":[1,2,3,4,5,6],
+    "y":[10,20,30,40,50,60],
+    "label":[0,0,0,1,1,1]
+})
+
+model = tfdf.keras.CartModel()
+model.fit(tfdf.keras.pd_dataframe_to_tf_dataset(data, label="label"))
+
+test = pd.DataFrame({"x":[2,5], "y":[15,55]})
+
+pred = model.predict(tfdf.keras.pd_dataframe_to_tf_dataset(test))
+
+pred_class = np.argmax(pred, axis=1)
+
+print(pred_class)
