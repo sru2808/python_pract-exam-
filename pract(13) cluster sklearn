@@ -1,0 +1,8 @@
+from sklearn.cluster import KMeans
+x=[[0,1],[1,2],[1,3],[7,8],[8,9]]
+
+
+model=KMeans(n_clusters=2)
+model.fit(x)
+result=model.predict([[6,7]])
+print(result)
