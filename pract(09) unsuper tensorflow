@@ -1,0 +1,19 @@
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+
+x = np.array([[1], [2], [3], [8], [9], [10]], float)
+
+centroids = tf.Variable([[1.0], [8.0]])
+
+d1 = tf.abs(x - centroids[0])
+d2 = tf.abs(x - centroids[1])
+
+labels = tf.cast(d1 < d2, tf.int32)
+
+print("Final Labels:", labels.numpy())
+
+plt.scatter(x, np.zeros_like(x), c=labels.numpy().flatten()) #This creates an array of zeros with the same shape as x
+plt.scatter(centroids.numpy(), [0, 0], color='red', marker='x')
+
+plt.show()
