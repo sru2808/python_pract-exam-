@@ -1,0 +1,32 @@
+import pandas as pd
+
+# i. DATA SERIES
+print("=== DATA SERIES ===")
+s = pd.Series([10, 20, 30, 40])
+print(s)
+
+# ii. DATA FRAME
+print("\n=== DATA FRAME ===")
+data = {
+    "Name": ["Amit", "Neha", "Raj"],
+    "Age": [20, 21, 22],
+    "Marks": [85, 90, 88]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+# iii. INDEXING
+print("\n=== INDEXING ===")
+
+# column indexing
+print("Names column:")
+print(df["Name"])
+
+# row indexing using iloc
+print("\nFirst row:")
+print(df.iloc[0])
+
+# specific value indexing
+print("\nValue at row 1, column 2 (Age):")
+print(df.iloc[1, 1])
